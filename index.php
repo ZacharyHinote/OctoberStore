@@ -3,6 +3,24 @@ Authors: Zachary Hinote, Connor Hardin, Landen Brewer
 Project: Halloween Shop Group Assignment
 Date: 10/19/2022
  -->
+
+<?php
+// Start session management with a persistent cookie
+$lifetime = 60 * 60 * 24 * 14;    // 2 weeks in seconds
+session_set_cookie_params($lifetime, '/');
+session_start();
+
+// Create a cart array if needed
+if (empty($_SESSION['cart12'])) { $_SESSION['cart12'] = array(); }
+
+// Create a table of products
+$products = array();
+$products['MMS-1754'] = array('name' => 'Flute', 'cost' => '149.50');
+$products['MMS-6289'] = array('name' => 'Trumpet', 'cost' => '199.50');
+$products['MMS-3408'] = array('name' => 'Clarinet', 'cost' => '299.50');
+
+?>
+
  <!DOCTYPE html>
  <html lang="en">
  <head>
@@ -14,7 +32,10 @@ Date: 10/19/2022
 	<header>
 		<h1>October Store</h1>
 	</header>
+    <img src="assets/img/Jackolantern.png" alt="Jack o Lantern Logo">
+
 	<?php
+            include 'model/data_functions.php';
 			if (isset($_GET['submit'])) {//Checks if the form as been submitted. 
 				$signup = true;
 			}
