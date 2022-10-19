@@ -9,4 +9,14 @@
         echo("Fail");
     }
 
+    function getItemArray() {
+        $myQuery = "Select * from games";
+        global $db;
+        $qry = $db->query($myQuery);       
+        $games = $qry->fetchAll();
+		print_r($items);
+        return $items;
+    }
+
+
 ?>
