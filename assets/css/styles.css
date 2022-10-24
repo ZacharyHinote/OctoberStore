@@ -7,3 +7,25 @@ img {
 	width: 300px;
 	height: 300px;
 }
+
+.item-container {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+}
+
+.whole-item {
+	text-align: center;
+}
+
+.item {
+	display: relative;
+	text-align: center;
+}
+
+.item > .img {
+	display: inline-block;
+	width: 50%;
+	height: 400px;
+	background-position: center;
+	background-size: cover;
+}

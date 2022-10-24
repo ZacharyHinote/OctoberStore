@@ -5,6 +5,7 @@ Date: 10/19/2022
  -->
 
 <?php
+include 'model/data_functions.php';
 // Start session management with a persistent cookie
 $lifetime = 60 * 60 * 24 * 14;    // 2 weeks in seconds
 session_set_cookie_params($lifetime, '/');
@@ -14,10 +15,35 @@ session_start();
 if (empty($_SESSION['cart12'])) { $_SESSION['cart12'] = array(); }
 
 // Create a table of products
-$products = array();
-$products['MMS-1754'] = array('name' => 'Flute', 'cost' => '149.50');
-$products['MMS-6289'] = array('name' => 'Trumpet', 'cost' => '199.50');
-$products['MMS-3408'] = array('name' => 'Clarinet', 'cost' => '299.50');
+$items = getItemArray();
+
+foreach($_SESSION['cart12'] as $cart_item) {
+	echo $cart_item['id'] . '&nbsp';
+	echo $cart_item['item_name'] . '&nbsp';
+	echo $cart_item['qty'];
+	echo '<br>';
+}
+
+
+if(count($_POST)) {
+	switch($_POST['action']) {
+		case 'add':
+			add_item($_POST['id'], 1); 
+			break; 
+	}
+}
+
+
+//print_r($items);
+
+// foreach ($items as $item) {
+	
+// }
+
+// $products = array();
+// $products['MMS-1754'] = array('name' => 'Flute', 'cost' => '149.50');
+// $products['MMS-6289'] = array('name' => 'Trumpet', 'cost' => '199.50');
+// $products['MMS-3408'] = array('name' => 'Clarinet', 'cost' => '299.50');
 
 ?>
 
@@ -35,7 +61,7 @@ $products['MMS-3408'] = array('name' => 'Clarinet', 'cost' => '299.50');
     <img src="assets/img/Jackolantern.png" alt="Jack o Lantern Logo">
 
 	<?php
-            include 'model/data_functions.php';
+            
 			if (isset($_GET['submit'])) {//Checks if the form as been submitted. 
 				$signup = true;
 			}
