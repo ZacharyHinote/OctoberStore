@@ -18,18 +18,24 @@
     <?php if(!$item): ?>
         <h1>Item does not exist!</h1>
     <?php else: ?>
-        <?php foreach($item as $attribute): ?>
-            <p><?= $attribute ?></p>
-        <?php endforeach; ?>
-        <p><?= $item['item_id'] ?></p>
+        
+		<?php
+			
+			echo("Product Name: " . $item["item_name"] . "<br><br>Price: $" . $item['price'] 
+			. "<br><br>Product Description: " . $item["description"] . "<br><br><img src=\"../assets/img/" . $item['image_name'] . "\" alt = \" Image of " . $item["item_name"] . "\">");
+		?>
+		
+        
         <form action="/OctoberStore/index.php" method="POST">
             <input type="hidden" name="action" id="action" value="add">
             <input type="hidden" name="id" id="id" value="<?= $item['item_id'] ?>">
+			<label for="qty"> Quantity </label>
+			<input type="number" name="qty" min="1">
             <button>Add to cart</button>
         </form>
     <?php endif;?>
 
-    <a href="/OctoberStore">Home</a>
+    <a href="/OctoberStore">Return Home</a>
 
 </body>
 </html>
