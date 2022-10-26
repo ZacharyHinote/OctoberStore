@@ -1,7 +1,7 @@
 <?php
-    include '../model/data_functions.php';
+    include '../model/data_functions.php';//Imports the data functions. 
     $item = null;
-    if($_GET) {
+    if($_GET) {//Retrieves the item id by the item ID entered. 
         $item = getItemById($_GET['id']); 
     }
 ?>
@@ -15,12 +15,12 @@
     <title>Single Product</title>
 </head>
 <body>
-    <?php if(!$item): ?>
+    <?php if(!$item): ?><!--If the item id fails to be returned, this outputs that the item does not exist. -->
         <h1>Item does not exist!</h1>
     <?php else: ?>
         
 		<?php
-			
+			//Outputs the Product's information for the customer, consisting of the product's name, price, description, and picture. 
 			echo("Product Name: " . $item["item_name"] . "<br><br>Price: $" . $item['price'] 
 			. "<br><br>Product Description: " . $item["description"] . "<br><br><img src=\"../assets/img/" . $item['image_name'] . "\" alt = \" Image of " . $item["item_name"] . "\">");
 		?>
