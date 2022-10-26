@@ -11,24 +11,26 @@ $lifetime = 60 * 60 * 24 * 14;    // 2 weeks in seconds
 session_set_cookie_params($lifetime, '/');
 session_start();
 
+
+
 // Create a cart array if needed
 if (empty($_SESSION['cart12'])) { $_SESSION['cart12'] = array(); }
 
 // Create a table of products
 $items = getItemArray();
 
-foreach($_SESSION['cart12'] as $cart_item) {
-	echo $cart_item['id'] . '&nbsp';
+/*foreach($_SESSION['cart12'] as $cart_item) {
+	//echo $cart_item['id'] . '&nbsp';
 	echo $cart_item['item_name'] . '&nbsp';
 	echo $cart_item['qty'];
 	echo '<br>';
-}
+}*/
 
 
 if(count($_POST)) {
 	switch($_POST['action']) {
 		case 'add':
-			add_item($_POST['id'], 1); 
+			add_item($_POST['id'], $_POST['qty']); 
 			break; 
 	}
 }
@@ -75,5 +77,9 @@ if(count($_POST)) {
 				default: 
 					include 'view/orderform.php';//Brings up the orderForm page before anything is posted. 
 			}
+			
+			
 		?>
+		
+		
 </body>
