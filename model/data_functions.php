@@ -1,5 +1,5 @@
 <?php
-    $dsn = "mysql:host=localhost;dbname=octoberstore";
+    $dsn = "mysql:host=localhost;dbname=octoberstore";//The following code imports the database. 
     $username = "root";
 	$password = "";
     try {
@@ -9,7 +9,7 @@
         echo("Failed to connect to Database");
     }
 
-    function getItemById($id) {
+    function getItemById($id) {//Gets the item by the id. 
         $myQuery = "Select * from items WHERE item_id=$id";
         global $db;
         $qry = $db->query($myQuery);       
@@ -17,7 +17,7 @@
         if($items) return $items[0];
     }
 
-    function getItemArray() {
+    function getItemArray() {//Gets the item array, returning it. 
         $myQuery = "Select * from items ORDER BY item_name";
         global $db;
         $qry = $db->query($myQuery);       
