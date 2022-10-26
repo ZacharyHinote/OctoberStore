@@ -19,15 +19,8 @@ if (empty($_SESSION['cart12'])) { $_SESSION['cart12'] = array(); }
 // Create a table of products
 $items = getItemArray();
 
-/*foreach($_SESSION['cart12'] as $cart_item) {
-	//echo $cart_item['id'] . '&nbsp';
-	echo $cart_item['item_name'] . '&nbsp';
-	echo $cart_item['qty'];
-	echo '<br>';
-}*/
 
-
-if(count($_POST)) {
+if(count($_POST)) { //Upon one of the action buttons being pressed to add to the shopping cart, this adds the item to the cart. 
 	switch($_POST['action']) {
 		case 'add':
 			add_item($_POST['id'], $_POST['qty']); 
@@ -36,16 +29,6 @@ if(count($_POST)) {
 }
 
 
-//print_r($items);
-
-// foreach ($items as $item) {
-	
-// }
-
-// $products = array();
-// $products['MMS-1754'] = array('name' => 'Flute', 'cost' => '149.50');
-// $products['MMS-6289'] = array('name' => 'Trumpet', 'cost' => '199.50');
-// $products['MMS-3408'] = array('name' => 'Clarinet', 'cost' => '299.50');
 
 ?>
 
