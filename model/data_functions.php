@@ -4,9 +4,9 @@
 	$password = "";
     try {
 		$db = new PDO($dsn, $username, $password);
-        echo("connected");
+        //echo("connected");
     } catch (PDOException $e){
-        echo("Fail");
+        echo("Failed to connect to Database");
     }
 
     function getItemById($id) {
