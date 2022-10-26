@@ -8,7 +8,7 @@
 	$total = 0;
 	
 	foreach($_SESSION['cart12'] as $cart_item) {
-		//echo $cart_item['id'] . '&nbsp';
+		//For each item in the cart, this displays them in the table. 
 		echo "<tr><td>". $cart_item['item_name'] . "</td>" . '&nbsp';
 		echo "<td>" . $cart_item['qty'] . "</td>";
 		echo "<td> $" . $cart_item['price'] . "</td>";
@@ -17,7 +17,7 @@
 		$total += $cart_item['price'] * $cart_item['qty'];
 	}
 	echo "</table><br>";
-	echo "Total: $" . $total;
+	echo "Total: $" . $total;//Displays the total. 
 	
 	
 
