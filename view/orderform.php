@@ -14,11 +14,7 @@
                 </div>
             </a>
             
-            <!--<form action="" method="POST">
-                <input type="hidden" name="action" id="action" value="add">
-                <input type="hidden" name="id" id="id" value="<?= $item[0] ?>">
-                <button>Quick Add</button>
-            </form>-->
+            <!--This code displays every item in the items array for the form.-->
         </div>
     <?php endforeach; ?>
 	<form action="" method="GET">
